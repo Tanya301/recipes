@@ -57,7 +57,12 @@ This is what my dataframe looked after cleaning (only some columns are shown for
 
 ### Univariate Analysis
 
-
+<iframe
+  src="ratings_plot.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 ### Bivariate Analysis
 
