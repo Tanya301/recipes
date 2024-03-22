@@ -131,7 +131,9 @@ The model uses a Decision Tree classifier with a maximum depth of 4 and three fe
 
 ## Final Model
 
+Features added include `n_steps` multiplied by `n_ingredients`, which reflects the interaction between recipe complexity and ingredient variety (potentially indicative of preparation time). Other features included are keywords in descriptions (like 'quick' or 'easy'), which hint at faster-to-prepare recipes, and recipes' calories, which provide a nutritional perspective, which could correlate with recipe complexity and preparation time. A Decision Tree classifier was chosen for its interpretability and simplicity, and was fitted using grid search. The best performing hyperparameters were a max_depth of 7, min_samples_leaf of 2, and min_samples_split of 50, identified through grid search and cross-validation (5-fold).
 
+The Final Model shows a slight improvement over the Baseline (~1%, which is minimal improvement), suggesting the added features provide marginal additional predictive power, aligning with expectations about the data generating process and preparation time. However, even with added features and tuning of hyperparameters the model does not perform much better.
 
 ## Fairness Analysis
 
