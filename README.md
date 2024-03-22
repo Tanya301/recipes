@@ -61,8 +61,7 @@ I performed a univariate analysis on the `rating` column (that contained recipes
 
 <iframe
   src="ratings_plot.html"
-  width="800"
-  height="600"
+  width="600"
   frameborder="0"
 ></iframe>
 
