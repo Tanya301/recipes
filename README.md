@@ -45,7 +45,7 @@ As a last step in this section, I dropped the following columns: `nutrition` (as
 * The columns `steps` and `indredients` are a free-form description of what a recipe is, and would not be useful for the model I planned on building.
 * As for the column `tags`, I did not consider it to be useful for the overall analysis, and as my model's goal was predicting how long a meal would take to cook, it seemed unreasonable to use tags for it (as they appear on the recipe after it has been added to the website and are most likely the last thing to be added to a recipe).
 
-This is what my dataframe looked after cleaning:
+This is what my dataframe looked after cleaning (only some columns are shown for easier reading):
 
 |     id |   minutes | description                                                                                                                                                                                                                                                                                                                                                                       |   n_steps |   n_ingredients |   calories |
 |-------:|----------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------:|----------------:|-----------:|
