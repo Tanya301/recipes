@@ -57,40 +57,68 @@ This is what my dataframe looked after cleaning (only some columns are shown for
 
 ### Univariate Analysis
 
-```html
+I performed a univariate analysis on the `rating` column (that contained recipes' average ratings), and found that the ratings in the dataframe are heavily skewed. This means that the feature would be useless for analysis or making of the prediction model.
+
 <iframe
   src="ratings_plot.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
-```
 
 ### Bivariate Analysis
 
+I examined the relationship between the recipe's number of ingredients and its calories. I found it interesting that at first, as expected, the amount of calories rises with the number of ingridients. However, for larger quantities of ingridients the amount of calories becomes lower on average.
 
+<iframe
+  src="ingr-calories-plot.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 ### Interesting Aggregates
 
 
 
+This is a pivot table containing number of ingredients againt preparation times, with mean calories as values. However, first I will put n_ingredients into bins, as number of ingredients goes all the way up to 35. The table suggests calorie count rises with more ingredients but varies by preparation time; 'Very long' prep often has fewer calories, but that could also be attributed to sample size.
+
 ## Assessment of Missingness
+
+In the dataset, 3 columns showed missing data: `name` (MCAR), `description` (MAR), and `rating` (NMAR).
 
 ### NMAR Analysis
 
-
+The `rating` column's missing mechanism is most likely NMAR, as people subjectively chose not to rate a recipe for different reasons: for example, when they want to ask a question or make a general comment without giving a recipe a grade. Some data that could be used as a confirmation here would be for example semantically analyzing people's reviews.
 
 ### Missingness Dependency
 
+I have noticed that descriptions tend to be missing when recipes are simpler. So, `description`'s missingness could be MAR-dependent on the column `n-steps`. I performed a permutation test and confirmed the dependency.
 
+<iframe
+  src="desc-steps.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 ## Hypothesis Testing
 
+The question explored: **Is there a strong correlation between the recipe's number of steps and its number of ingredients?**
 
+Null hypothesis: There is no relationship between n_steps and n_ingredients in the recipes.
+
+Alternative hypothesis: There is a relationship between the number of calories and the amount of protein in the recipes.
+
+Test stat: correlation between `n_steps` and `n_ingredients`.
+
+After performing the test, with p-value < 0.05, I rejected the null hypothesis in facor of the alternative: there most likely is a correlation between a recipe's number of steps and its number of ingredients.
 
 ## Framing a Prediction Problem
 
+My prediction problem is to predict what preparation time category a recipe falls into ('Short', 'Medium', 'Long', 'Very long'). This is a multiclass classification problem. The features considered included mainly `n_steps`, `n_ingredients` or `n_ingredients_cat`, with the addition of `calories` and `description`s' containing certain keywords (such as 'quick'). The response variable is `preparation_time` (a categorical variable created from `minutes`). The metric used to validate the model is accuracy.
 
+The features described are reasonable to have at the time of prediction, as I want to predict how long the recipe would take when it's already created, while such features as `tags` as most likely to be created after people have already cooked the recipes, hence the preparation time is already known.
 
 ## Baseline Model
 
@@ -102,5 +130,5 @@ This is what my dataframe looked after cleaning (only some columns are shown for
 
 ## Fairness Analysis
 
-
+As the model is still performing poorly, I consider it pointless to perform fairness analysis as of this moment. However, in the next steps of my project, I will consider seeing how fair the model predicts preparation times for recipes from different decades, and how fair it performs on recipes with different nurtitional values.
 
