@@ -29,6 +29,64 @@ The 2 datasets I merged were `interactions` and `recipes`. The interactions data
 - `ingredients`: the ingredients required for the recipe.
 - `n_ingredients`: the number of ingredients.
 
-The recipes were merged on `recipe_id`, and I used the rating's average. Before the merge, I replaced 0s in the rating with NaN values, as they were identified as missing values and would affect the mean values (lower them).
+As my goal was to predict recipes prepaation time, the relevant columns here would be `minutes`, `n_steps`, `n_ingredients`, and possibly description and some nutritional values.
 
 ## Data Cleaning and Exploratory Data Analysis
+
+### Data cleaning
+
+First, as mentioned earlier, I replaced 0s in the `rating` column (before merging). I have come to that decision after seeing several positive reviews, or just questions and comments where the rating was 0. Hence, the value is not actually 0 and is in fact a missing value.
+
+The recipes were merged on `recipe_id`, and I used the rating's average. Before the merge, I replaced 0s in the rating with NaN values, as they were identified as missing values and would affect the mean values (lower them). Furthermore, after merging I rounded the ratings to the nearest 0.5 so the variable would be categorical ordinal rather than continuous.
+
+Then, I separated the column `nutrition` into 7 columns (`calories`, `fat`, `sugar`, `sodium`, `protein`, `sat_fat`, `carbohydrates`) for further analysis.
+
+As a last step in this section, I dropped the following columns: `nutrition` (as it was transformed and the column itself became redundant), `steps`, `ingredients`, and `tags` (as I was not intending to use those columns for my analysis).
+* The columns `steps` and `indredients` are a free-form description of what a recipe is, and would not be useful for the model I planned on building.
+* As for the column `tags`, I did not consider it to be useful for the overall analysis, and as my model's goal was predicting how long a meal would take to cook, it seemed unreasonable to use tags for it (as they appear on the recipe after it has been added to the website and are most likely the last thing to be added to a recipe).
+
+
+
+
+### Univariate Analysis
+
+
+
+### Bivariate Analysis
+
+
+
+### Interesting Aggregates
+
+
+
+## Assessment of Missingness
+
+### NMAR Analysis
+
+
+
+### Missingness Dependency
+
+
+
+## Hypothesis Testing
+
+
+
+## Framing a Prediction Problem
+
+
+
+## Baseline Model
+
+
+
+## Final Model
+
+
+
+## Fairness Analysis
+
+
+
