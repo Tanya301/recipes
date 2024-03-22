@@ -62,6 +62,7 @@ I performed a univariate analysis on the `rating` column (that contained recipes
 <iframe
   src="ratings_plot.html"
   width="600"
+  height="600"
   frameborder="0"
 ></iframe>
 
@@ -71,7 +72,7 @@ I examined the relationship between the recipe's number of ingredients and its c
 
 <iframe
   src="ingr-calories-plot.html"
-  width="800"
+  width="600"
   height="600"
   frameborder="0"
 ></iframe>
@@ -126,7 +127,7 @@ The features described are reasonable to have at the time of prediction, as I wa
 
 ## Baseline Model
 
-
+The model uses a Decision Tree classifier with a maximum depth of 4 and three features: `n_steps` (quantitative) and `n_ingredients_cat` (ordinal, one-hot encoded). The model's accuracy is around 51%, which is technically better than randomly guessing (as there are 4 classes, so the chance to guess would be 25%), but there is a lot of room for improvement.
 
 ## Final Model
 
