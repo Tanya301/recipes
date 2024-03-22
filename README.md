@@ -79,7 +79,12 @@ I examined the relationship between the recipe's number of ingredients and its c
 
 ### Interesting Aggregates
 
-
+|   Short |   Medium |     Long |   Very long |
+|--------:|---------:|---------:|------------:|
+| 329.896 |  413.557 |  493.387 |     567.763 |
+| 420.423 |  486.817 |  609.569 |     682.428 |
+| 563.026 |  666.303 |  735.745 |    2472.27  |
+| nan     |  670.275 | 2180.86  |     559     |
 
 This is a pivot table containing number of ingredients againt preparation times, with mean calories as values. However, first I will put n_ingredients into bins, as number of ingredients goes all the way up to 35. The table suggests calorie count rises with more ingredients but varies by preparation time; 'Very long' prep often has fewer calories, but that could also be attributed to sample size.
 
@@ -93,14 +98,14 @@ The `rating` column's missing mechanism is most likely NMAR, as people subjectiv
 
 ### Missingness Dependency
 
-I have noticed that descriptions tend to be missing when recipes are simpler. So, `description`'s missingness could be MAR-dependent on the column `n-steps`. I performed a permutation test and confirmed the dependency.
+I have noticed that descriptions tend to be missing when recipes are simpler. So, `description`'s missingness could be MAR-dependent on the column `n-ingredients`. I performed a permutation test and confirmed the dependency.
 
-<iframe
-  src="desc-steps.html"
-  width="800"
-  height="600"
-  frameborder="0"
-></iframe>
+|   n_ingredients_cat |
+|--------------------:|
+|                  58 |
+|                  12 |
+|                   0 |
+|                   0 |
 
 ## Hypothesis Testing
 
