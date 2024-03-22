@@ -55,7 +55,6 @@ This is what my dataframe looked after cleaning (only some columns are shown for
 | 286009 |       120 | why a millionaire pound cake? ...                                                                                                                                                                |         7 |               7 |      878.3 |
 | 475785 |        90 | ready, set, cook! special ...                                                                                                                                                                         |        17 |              13 |      267   |
 
-
 ### Univariate Analysis
 
 
